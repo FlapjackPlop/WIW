@@ -1,8 +1,10 @@
 extends CharacterBody2D
 
-var health = 100
+# Misc variables
+var gravity = Global.gravity
 
-var gravity = 2000
+# Dummy variables
+@onready var health = 100
 
 func _ready():
 	$HealthBar.max_value = health
@@ -18,13 +20,13 @@ func  UI():
 	$HealthBar.value = health
 
 func death():
-	# Deletes itself if health is 0
-	if health <= 0:
-		queue_free()
+	queue_free() # Deletes itself
 
 func _physics_process(delta):
 	UI() # Handles UI
-	death() # Handles death
+	
+	if health <= 0:
+		death() # Handles death
 	
 	# Add the gravity.
 	if not is_on_floor():
@@ -34,16 +36,17 @@ func _physics_process(delta):
 	
 	move_and_slide()
 
-func hit(damage):
+func hit(dmg, knk):
 	# Removes health based on damage
-	health -= damage
+	health -= dmg
 	
 	# Calls knockback
-	knockback(damage)
+	knockback(knk)
 
 func knockback(strength):
+	# Activates knockback
 	if (Global.player.global_position.x - global_position.x) > 0:
 		velocity.x = -strength * 100
 	else:
 		velocity.x = strength * 100
-	velocity.y = -strength * 10
+	velocity.y = -strength * 20

@@ -1,0 +1,23 @@
+[gd_scene load_steps=4 format=3 uid="uid://gbnahqqfpr3s"]
+
+[ext_resource type="Script" path="res://Script/IsotopeChunk.gd" id="1_wiq2x"]
+[ext_resource type="Texture2D" uid="uid://cmmro5b5ygvks" path="res://Art/Placeholder/Cube.png" id="2_0eplj"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_fgppe"]
+radius = 22.3607
+
+[node name="IsotopeChunk" type="CharacterBody2D"]
+script = ExtResource("1_wiq2x")
+
+[node name="Visual" type="Node2D" parent="."]
+
+[node name="Sprite2D" type="Sprite2D" parent="Visual"]
+modulate = Color(0.666667, 1, 0.34902, 1)
+texture = ExtResource("2_0eplj")
+
+[node name="Area2D" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+shape = SubResource("CircleShape2D_fgppe")
+
+[connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]
