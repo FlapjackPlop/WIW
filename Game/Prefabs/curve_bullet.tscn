@@ -1,7 +1,7 @@
 [gd_scene load_steps=4 format=3 uid="uid://cgh17luhb7msk"]
 
 [ext_resource type="Script" path="res://Script/CurveBullet.gd" id="1_g0atj"]
-[ext_resource type="Texture2D" uid="uid://cmmro5b5ygvks" path="res://Art/Placeholder/Cube.png" id="2_48k48"]
+[ext_resource type="Texture2D" uid="uid://e25xdqqem1f" path="res://Art/Placeholder/Crawler/Bullet.png" id="2_yw5eh"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_r1a77"]
 radius = 28.0179
@@ -12,8 +12,9 @@ script = ExtResource("1_g0atj")
 [node name="Visuals" type="Node2D" parent="."]
 
 [node name="Sprite" type="Sprite2D" parent="Visuals"]
-scale = Vector2(1.5, 1.5)
-texture = ExtResource("2_48k48")
+position = Vector2(0, 2)
+scale = Vector2(0.36, 0.36)
+texture = ExtResource("2_yw5eh")
 
 [node name="Area2D" type="Area2D" parent="."]
 

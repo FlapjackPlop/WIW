@@ -1,5 +1,8 @@
 extends CharacterBody2D
 
+# Children Variables
+@onready var animation_player = $Visuals/AnimationPlayer
+
 # Misc variables
 var gravity = Global.gravity
 
@@ -65,7 +68,16 @@ func movement(delta):
 		$CrawlTime.start()
 		crawling = true
 
+func animation():
+	if stop_moving:
+		animation_player.play("Hurt")
+	else:
+		if velocity.x != 0:
+			animation_player.play("Walk")
+
 func _physics_process(delta):
+	animation() # Handles animation
+	
 	if health <= 0:
 		death() # Handles death
 	
@@ -86,7 +98,7 @@ func _on_crawl_time_timeout():
 	
 	var bullet_instance = bullet.instantiate()
 	
-	bullet_instance.global_position = global_position
+	bullet_instance.global_position = $ShootPoint.global_position
 	bullet_instance.curve_height = randi_range(5, 30)
 	
 	if randi_range(0, 100) > 50:
@@ -98,6 +110,8 @@ func _on_crawl_time_timeout():
 		bullet_instance.speed = -bullet_instance.speed
 	
 	get_parent().add_child(bullet_instance)
+	
+	animation_player.play("Shoot")
 	
 	$PauseTime.wait_time = randf_range(0.1, 2)
 	$PauseTime.start()

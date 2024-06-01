@@ -1,6 +1,6 @@
 extends CharacterBody2D
 
-var speed = 150
+var speed = 450
 
 @onready var isotope_count = 5
 
