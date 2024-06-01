@@ -9,6 +9,7 @@ var player_damage = 20
 var player_health = 50
 var player_max_health = 50
 
+var level = 0
 var isotopes = 0
 
 # Stats

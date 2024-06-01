@@ -6,9 +6,10 @@ extends CharacterBody2D
 @onready var sword_sprite = $Sword/SwordSprite
 @onready var animation_player = $Visuals/AnimationPlayer
 @onready var temp_character = $Visuals/TempCharacter
-@onready var health_num = $UI/Control/HealthNum
-@onready var health_bar = $UI/Control/HealthBar
-@onready var isotopes_num = $UI/Control/IsotopesNum
+@onready var health_num = $UI/Control/PlayerInfo/HealthNum
+@onready var health_bar = $UI/Control/PlayerInfo/HealthBar
+@onready var isotopes_num = $UI/Control/PlayerInfo/IsotopesNum
+@onready var evolve_panel = $UI/Control/EvolveUI/EvolvePanel
 
 # Misc variables
 var gravity = Global.gravity
@@ -165,3 +166,11 @@ func _on_sword_swing_timeout():
 func _on_sword_cooldown_timeout():
 	# Stops swing
 	swinging = false
+
+
+func _on_area_body_entered(body):
+	if body.is_in_group("lantern"):
+		evolve_panel.visible = true
+func _on_area_body_exited(body):
+	if body.is_in_group("lantern"):
+		evolve_panel.visible = false

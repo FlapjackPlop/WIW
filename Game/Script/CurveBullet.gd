@@ -1,5 +1,8 @@
 extends CharacterBody2D
 
+# Children variables
+@onready var life_time = $LifeTime
+
 # Bullet variables
 var curve_speed = 800
 var speed = 64000
@@ -15,6 +18,9 @@ var y
 func _ready():
 	x = global_position.x
 	y = global_position.y
+	
+	# Starts life
+	life_time.start()
 
 func _physics_process(delta):
 	if direction == 1:
@@ -37,3 +43,7 @@ func _on_area_2d_body_entered(body):
 	if body.is_in_group("player"):
 		body.hit(damage, knockback)
 		queue_free()
+
+func _on_life_time_timeout():
+	# Delete bullet when life ends
+	queue_free()

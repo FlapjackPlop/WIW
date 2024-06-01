@@ -109,7 +109,8 @@ func _on_crawl_time_timeout():
 	if Global.player.global_position.x < global_position.x:
 		bullet_instance.speed = -bullet_instance.speed
 	
-	get_parent().add_child(bullet_instance)
+	if !stop_moving:
+		get_parent().add_child(bullet_instance)
 	
 	animation_player.play("Shoot")
 	
