@@ -3,6 +3,10 @@ extends CharacterBody2D
 # Children Variables
 @onready var animation_player = $Visuals/AnimationPlayer
 
+# Audio variables
+@onready var shoot = $Audio/Shoot
+@onready var step = $Audio/Step
+
 # Misc variables
 var gravity = Global.gravity
 
@@ -48,7 +52,7 @@ func death():
 	while a < isotope_num:
 		var isotope_instance = isotope.instantiate()
 		
-		isotope_instance.global_position = global_position + Vector2(randf_range(-60, 60), randf_range(-60, 60))
+		isotope_instance.global_position = global_position + Vector2(randf_range(-100, 100), randf_range(-100, 100))
 		
 		get_parent().add_child(isotope_instance)
 		a += 1
@@ -120,3 +124,18 @@ func _on_crawl_time_timeout():
 func _on_pause_time_timeout():
 	paused = false
 	crawling = false
+
+# Audio functions
+func shoot_audio():
+	# Handles the shoot sound
+	randomize()
+	shoot.pitch_scale = randf_range(0.8, 1.7)
+	
+	shoot.play()
+
+func step_audio():
+	# Handles the shoot sound
+	randomize()
+	step.pitch_scale = randf_range(1.3, 2.3)
+	
+	step.play()

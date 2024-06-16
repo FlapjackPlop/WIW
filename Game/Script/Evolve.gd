@@ -1,5 +1,8 @@
 extends Control
 
+# Audio variables
+@onready var evolve = $Audio/Evolve
+
 # New stat variables
 var new_tox = 0
 var new_end = 0
@@ -18,6 +21,8 @@ var cost = 0
 func _process(delta):
 	if !$EvolvePanel.visible:
 		reset()
+	else:
+		Global.heals = Global.max_heals  
 	
 	# Shows level
 	$EvolvePanel/LevelCount.text = "Level " + str(Global.level)
@@ -30,7 +35,7 @@ func _process(delta):
 	total_change = tox_change + end_change + flm_change
 	
 	# Shows new stats
-	if cost > Global.isotopes:
+	if cost > Global.isotopes or cost == 0:
 		$EvolvePanel/NewNums/ToxNumNew.modulate = Color(1,0,0)
 		$EvolvePanel/NewNums/EndNumNew.modulate = Color(1,0,0)
 		$EvolvePanel/NewNums/FlmNumNew.modulate = Color(1,0,0)
@@ -68,7 +73,7 @@ func _process(delta):
 		cost = 0
 	
 	# Shows cost
-	if cost > Global.isotopes:
+	if cost > Global.isotopes or cost == 0:
 		$EvolvePanel/Cost.modulate = Color(1,0,0)
 	else:
 		$EvolvePanel/Cost.modulate = Color(0,1,0)
@@ -99,7 +104,7 @@ func _on_flm_minus_pressed():
 
 # Evolve button
 func _on_evolve_button_pressed():
-	if cost < Global.isotopes:
+	if cost < Global.isotopes and cost > 0:
 		Global.isotopes -= cost
 		
 		Global.toxicity += tox_change
@@ -107,6 +112,8 @@ func _on_evolve_button_pressed():
 		Global.flame += flm_change
 		
 		Global.level += total_change
+		
+		evolve.play()
 		
 		reset()
 

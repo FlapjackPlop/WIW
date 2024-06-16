@@ -1,0 +1,24 @@
+~ start
+
+if Global.item_containers.has("Banana"):
+	Seth: Do i smell...
+	Seth: A [wave amp=25 freq=5]BANANA?[/wave]
+	Seth: You are the chosen one.
+	Seth: Finding a banana in such a place is next to impossible...
+	Seth: Thank you for bringing me hope stranger...
+else:
+	Seth: Hey stranger...
+	Seth: I heard rumors of a lost banana in these areas.
+	Seth: If you find it, please show it to me. It was always my dream to see a real banana.
+	
+	- Why do you want bananas so badly?
+		Seth: Well you see...
+		Seth: My father was a banana farmer way back when.
+		Seth: Ever since i was a little child i havent seen a banana.
+		Seth: It would bring me [shake rate=20 level=10]great[/shake] happiness to see one again.
+	- Okay
+		Seth: Thank you stranger.
+	- (Walk away silently)
+
+set Global.in_dialogue = false
+=> END

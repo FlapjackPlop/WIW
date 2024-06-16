@@ -11,6 +11,13 @@ var player_max_health = 50
 
 var level = 0
 var isotopes = 0
+var max_heals = 4
+var heals = 0
+
+var items = []
+var item_containers = []
+
+var in_dialogue = false
 
 # Stats
 var toxicity = 0
@@ -20,6 +27,9 @@ var flame = 0
 @warning_ignore("unused_parameter")
 func _process(delta):
 	update_stats() # Handles stats
+	
+	if Input.is_action_just_pressed("restart"):
+		get_tree().reload_current_scene() # Restarts current scene
 
 func update_stats():
 	if player != null:

@@ -1,0 +1,20 @@
+[gd_scene load_steps=2 format=3 uid="uid://dqblqmdihlfpv"]
+
+[ext_resource type="Texture2D" uid="uid://dxb22i6vp0720" path="res://Art/Placeholder/Isotope.png" id="1_nleyb"]
+
+[node name="Name" type="Panel"]
+
+[node name="Button" type="Button" parent="."]
+layout_mode = 0
+offset_right = 320.0
+offset_bottom = 320.0
+icon = ExtResource("1_nleyb")
+icon_alignment = 1
+expand_icon = true
+
+[node name="Description" type="RichTextLabel" parent="."]
+visible = false
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+text = "Description"

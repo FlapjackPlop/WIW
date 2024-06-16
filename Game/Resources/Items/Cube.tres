@@ -1,0 +1,10 @@
+[gd_resource type="Resource" script_class="Item" load_steps=3 format=3 uid="uid://beegvkxhldsks"]
+
+[ext_resource type="Texture2D" uid="uid://cmmro5b5ygvks" path="res://Art/Placeholder/Cube.png" id="1_qg1w2"]
+[ext_resource type="Script" path="res://Script/ItemResource.gd" id="2_55asd"]
+
+[resource]
+script = ExtResource("2_55asd")
+item_name = "The CUBE"
+description = "Its just a white cube"
+image = ExtResource("1_qg1w2")

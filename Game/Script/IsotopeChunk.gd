@@ -16,5 +16,6 @@ func _physics_process(delta):
 func _on_area_2d_body_entered(body):
 	# Destroyes itself and adds to the isotope count if in contact with player
 	if body.is_in_group("player"):
+		body.jingle_audio()
 		queue_free()
 		Global.isotopes += isotope_count

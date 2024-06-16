@@ -1,4 +1,4 @@
-[gd_scene load_steps=55 format=3 uid="uid://bpda5excxay2u"]
+[gd_scene load_steps=38 format=3 uid="uid://bpda5excxay2u"]
 
 [ext_resource type="Texture2D" uid="uid://cmmro5b5ygvks" path="res://Art/Placeholder/Cube.png" id="1_23mms"]
 [ext_resource type="Texture2D" uid="uid://jaalsnw8mcg4" path="res://Art/Placeholder/TilemapTest.png" id="1_sdypg"]
@@ -13,7 +13,6 @@
 [ext_resource type="Texture2D" uid="uid://dsuifxof6xce2" path="res://Art/Placeholder/CandleBoy/Leg.png" id="5_xvhef"]
 [ext_resource type="Texture2D" uid="uid://bf38wm8k1tp5j" path="res://Art/Placeholder/CandleBoy/Body.png" id="6_42gg4"]
 [ext_resource type="AudioStream" uid="uid://cmpodswjpsace" path="res://Audio/Placeholder/Step.wav" id="7_w7d86"]
-[ext_resource type="FontFile" uid="uid://wyia8ds063ev" path="res://Fonts/Hey Comic.otf" id="7_y5qi4"]
 [ext_resource type="AudioStream" uid="uid://c0oq4maanly5u" path="res://Audio/Placeholder/Jump.wav" id="8_2tn7p"]
 [ext_resource type="AudioStream" uid="uid://sq6t50admkyo" path="res://Audio/Placeholder/Evolve.wav" id="8_3e75q"]
 [ext_resource type="Script" path="res://Script/InventoryUI.gd" id="8_fb4mk"]
@@ -21,10 +20,6 @@
 [ext_resource type="PackedScene" uid="uid://0iwpktjqcmmd" path="res://Prefabs/crawler.tscn" id="10_i18bl"]
 [ext_resource type="AudioStream" uid="uid://duvmoadtd70la" path="res://Audio/Placeholder/Isotope.mp3" id="10_ps0s0"]
 [ext_resource type="Texture2D" uid="uid://8hnjxmteogwt" path="res://Art/Placeholder/Background.png" id="15_87a7d"]
-[ext_resource type="PackedScene" uid="uid://c2pucgxgaf7t5" path="res://Prefabs/item.tscn" id="21_7cqco"]
-[ext_resource type="Resource" uid="uid://tlgg40vprwd3" path="res://Resources/Items/Banana.tres" id="22_y157n"]
-[ext_resource type="Resource" uid="uid://beegvkxhldsks" path="res://Resources/Items/Cube.tres" id="23_5adhr"]
-[ext_resource type="Resource" uid="uid://b3o767u2vq482" path="res://Resources/Items/Umbrella.tres" id="25_g5gma"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_f8dsx"]
 resource_name = "Ground"
@@ -512,45 +507,8 @@ sources/0 = SubResource("TileSetAtlasSource_f8dsx")
 [sub_resource type="CircleShape2D" id="CircleShape2D_5083i"]
 radius = 65.6201
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_vo1e6"]
-bg_color = Color(0.0784314, 0.0784314, 0.0784314, 1)
-corner_radius_top_left = 20
-corner_radius_top_right = 20
-corner_radius_bottom_right = 20
-corner_radius_bottom_left = 20
-
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_y4psj"]
 bg_color = Color(0.152941, 0.152941, 0.152941, 1)
-
-[sub_resource type="Theme" id="Theme_8dprr"]
-default_font = ExtResource("7_y5qi4")
-
-[sub_resource type="Theme" id="Theme_e2pwe"]
-default_font = ExtResource("7_y5qi4")
-
-[sub_resource type="Theme" id="Theme_8dikh"]
-default_font = ExtResource("7_y5qi4")
-
-[sub_resource type="Theme" id="Theme_a6x4m"]
-default_font = ExtResource("7_y5qi4")
-
-[sub_resource type="Theme" id="Theme_q6dn2"]
-default_font = ExtResource("7_y5qi4")
-
-[sub_resource type="Theme" id="Theme_b6byr"]
-default_font = ExtResource("7_y5qi4")
-
-[sub_resource type="Theme" id="Theme_a4fn0"]
-default_font = ExtResource("7_y5qi4")
-
-[sub_resource type="Theme" id="Theme_rqw82"]
-default_font = ExtResource("7_y5qi4")
-
-[sub_resource type="Theme" id="Theme_d7wih"]
-default_font = ExtResource("7_y5qi4")
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_t47ws"]
-bg_color = Color(0.156863, 0.156863, 0.156863, 1)
 
 [sub_resource type="Gradient" id="Gradient_mygro"]
 colors = PackedColorArray(0.996094, 0.285156, 0, 1, 1, 0.566667, 0, 1)
@@ -1162,9 +1120,6 @@ size = Vector2(32, 32)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_rhcva"]
 size = Vector2(64, 64)
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_u2ovc"]
-size = Vector2(58, 102)
-
 [node name="TestWorld" type="Node2D"]
 
 [node name="UI" type="CanvasLayer" parent="."]
@@ -1195,17 +1150,8 @@ script = ExtResource("2_oo7q3")
 
 [node name="Area" type="Area2D" parent="Player"]
 
-[node name="CollisionShape" type="CollisionShape2D" parent="Player/Area"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Player/Area"]
 shape = SubResource("CircleShape2D_5083i")
-debug_color = Color(0.333333, 0.615686, 0.227451, 0.419608)
-
-[node name="InteractArea" type="Area2D" parent="Player"]
-collision_layer = 3
-collision_mask = 3
-
-[node name="CollisionShape" type="CollisionShape2D" parent="Player/InteractArea"]
-shape = SubResource("CircleShape2D_5083i")
-disabled = true
 debug_color = Color(0.333333, 0.615686, 0.227451, 0.419608)
 
 [node name="UI" type="CanvasLayer" parent="Player"]
@@ -1219,12 +1165,9 @@ grow_horizontal = 2
 grow_vertical = 2
 
 [node name="PlayerInfo" type="Control" parent="Player/UI/Control"]
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
 
 [node name="HealthNum" type="RichTextLabel" parent="Player/UI/Control/PlayerInfo"]
 layout_mode = 0
@@ -1280,67 +1223,6 @@ offset_bottom = 1095.0
 theme_override_font_sizes/normal_font_size = 80
 text = "0"
 
-[node name="ItemPickup" type="Control" parent="Player/UI/Control/PlayerInfo"]
-visible = false
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-
-[node name="Panel" type="Panel" parent="Player/UI/Control/PlayerInfo/ItemPickup"]
-layout_mode = 1
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -383.0
-offset_top = -95.0
-offset_right = 383.0
-offset_bottom = 95.0
-grow_horizontal = 2
-grow_vertical = 2
-theme_override_styles/panel = SubResource("StyleBoxFlat_vo1e6")
-
-[node name="Description" type="RichTextLabel" parent="Player/UI/Control/PlayerInfo/ItemPickup/Panel"]
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-offset_left = 195.0
-offset_top = 27.0
-grow_horizontal = 2
-grow_vertical = 2
-text = "BLABLABAL"
-
-[node name="Name" type="RichTextLabel" parent="Player/UI/Control/PlayerInfo/ItemPickup/Panel"]
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-offset_left = 195.0
-offset_bottom = -89.0
-grow_horizontal = 2
-grow_vertical = 2
-text = "BLABLABAL"
-
-[node name="Texture" type="TextureRect" parent="Player/UI/Control/PlayerInfo/ItemPickup/Panel"]
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-offset_left = 16.0
-offset_top = 19.0
-offset_right = -574.0
-offset_bottom = -15.0
-grow_horizontal = 2
-grow_vertical = 2
-texture = ExtResource("4_vf7ot")
-expand_mode = 1
-stretch_mode = 5
-
 [node name="EvolveUI" type="Control" parent="Player/UI/Control"]
 anchors_preset = 0
 offset_right = 40.0
@@ -1378,7 +1260,6 @@ offset_left = 217.0
 offset_top = 46.0
 offset_right = 341.0
 offset_bottom = 148.0
-theme = SubResource("Theme_8dprr")
 theme_override_font_sizes/normal_font_size = 71
 text = "5
 "
@@ -1389,7 +1270,6 @@ offset_left = 217.0
 offset_top = 212.0
 offset_right = 341.0
 offset_bottom = 314.0
-theme = SubResource("Theme_8dprr")
 theme_override_font_sizes/normal_font_size = 71
 text = "5
 "
@@ -1400,7 +1280,6 @@ offset_left = 217.0
 offset_top = 398.0
 offset_right = 341.0
 offset_bottom = 500.0
-theme = SubResource("Theme_8dprr")
 theme_override_font_sizes/normal_font_size = 71
 text = "5
 "
@@ -1417,7 +1296,6 @@ offset_left = 217.0
 offset_top = 46.0
 offset_right = 341.0
 offset_bottom = 148.0
-theme = SubResource("Theme_e2pwe")
 theme_override_font_sizes/normal_font_size = 71
 text = "5
 "
@@ -1428,7 +1306,6 @@ offset_left = 217.0
 offset_top = 212.0
 offset_right = 341.0
 offset_bottom = 314.0
-theme = SubResource("Theme_e2pwe")
 theme_override_font_sizes/normal_font_size = 71
 text = "5
 "
@@ -1439,7 +1316,6 @@ offset_left = 217.0
 offset_top = 398.0
 offset_right = 341.0
 offset_bottom = 500.0
-theme = SubResource("Theme_e2pwe")
 theme_override_font_sizes/normal_font_size = 71
 text = "5
 "
@@ -1457,7 +1333,6 @@ offset_left = 868.0
 offset_top = 198.0
 offset_right = 1098.0
 offset_bottom = 277.0
-theme = SubResource("Theme_8dikh")
 theme_override_font_sizes/normal_font_size = 51
 text = "Toxicity
 "
@@ -1468,7 +1343,6 @@ offset_left = 829.0
 offset_top = 381.0
 offset_right = 1105.0
 offset_bottom = 460.0
-theme = SubResource("Theme_8dikh")
 theme_override_font_sizes/normal_font_size = 51
 text = "Endurance
 "
@@ -1479,7 +1353,6 @@ offset_left = 884.0
 offset_top = 556.0
 offset_right = 1050.0
 offset_bottom = 635.0
-theme = SubResource("Theme_8dikh")
 theme_override_font_sizes/normal_font_size = 51
 text = "Flame
 "
@@ -1495,7 +1368,6 @@ offset_left = 685.0
 offset_top = 63.0
 offset_right = 749.0
 offset_bottom = 128.0
-theme = SubResource("Theme_a6x4m")
 theme_override_font_sizes/font_size = 41
 text = ">"
 
@@ -1505,7 +1377,6 @@ offset_left = 725.0
 offset_top = 240.0
 offset_right = 789.0
 offset_bottom = 305.0
-theme = SubResource("Theme_a6x4m")
 theme_override_font_sizes/font_size = 41
 text = ">"
 
@@ -1515,7 +1386,6 @@ offset_left = 662.0
 offset_top = 419.0
 offset_right = 726.0
 offset_bottom = 484.0
-theme = SubResource("Theme_a6x4m")
 theme_override_font_sizes/font_size = 41
 text = ">"
 
@@ -1530,7 +1400,6 @@ offset_left = 413.0
 offset_top = 63.0
 offset_right = 477.0
 offset_bottom = 128.0
-theme = SubResource("Theme_q6dn2")
 theme_override_font_sizes/font_size = 41
 text = "<
 "
@@ -1541,7 +1410,6 @@ offset_left = 371.0
 offset_top = 240.0
 offset_right = 435.0
 offset_bottom = 305.0
-theme = SubResource("Theme_q6dn2")
 theme_override_font_sizes/font_size = 41
 text = "<
 "
@@ -1552,7 +1420,6 @@ offset_left = 434.0
 offset_top = 415.0
 offset_right = 498.0
 offset_bottom = 480.0
-theme = SubResource("Theme_q6dn2")
 theme_override_font_sizes/font_size = 41
 text = "<
 "
@@ -1563,7 +1430,6 @@ offset_left = 428.0
 offset_top = 667.0
 offset_right = 734.0
 offset_bottom = 734.0
-theme = SubResource("Theme_b6byr")
 theme_override_colors/font_color = Color(0, 1, 0, 1)
 theme_override_font_sizes/font_size = 41
 text = "Evolve"
@@ -1575,7 +1441,6 @@ offset_top = 540.0
 offset_right = 1315.0
 offset_bottom = 640.0
 mouse_filter = 2
-theme = SubResource("Theme_a4fn0")
 theme_override_colors/default_color = Color(0.721569, 0.682353, 0, 1)
 theme_override_font_sizes/normal_font_size = 56
 text = "500 Isotopes needed."
@@ -1587,7 +1452,6 @@ offset_top = 678.0
 offset_right = 1417.0
 offset_bottom = 804.0
 mouse_filter = 2
-theme = SubResource("Theme_rqw82")
 theme_override_font_sizes/normal_font_size = 56
 text = "1200"
 
@@ -1599,7 +1463,6 @@ offset_top = -7.0
 offset_right = 1304.0
 offset_bottom = 119.0
 mouse_filter = 2
-theme = SubResource("Theme_d7wih")
 theme_override_font_sizes/normal_font_size = 56
 text = "Level 5
 "
@@ -1619,15 +1482,12 @@ texture = ExtResource("4_vf7ot")
 stream = ExtResource("8_3e75q")
 
 [node name="InventoryUI" type="Control" parent="Player/UI/Control"]
-visible = false
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-scale = Vector2(0.91, 0.91)
-pivot_offset = Vector2(960, 540)
 script = ExtResource("8_fb4mk")
 
 [node name="Panel" type="Panel" parent="Player/UI/Control/InventoryUI"]
@@ -1682,7 +1542,6 @@ anchor_bottom = 1.0
 offset_top = 100.0
 grow_horizontal = 2
 grow_vertical = 2
-theme_override_styles/panel = SubResource("StyleBoxFlat_t47ws")
 
 [node name="Items" type="Control" parent="Player/UI/Control/InventoryUI/Panel/Content"]
 layout_mode = 1
@@ -1708,6 +1567,24 @@ theme_override_constants/h_separation = 350
 theme_override_constants/v_separation = 350
 columns = 4
 
+[node name="Georges Claw" type="Panel" parent="Player/UI/Control/InventoryUI/Panel/Content/Items/ItemContainer/Items"]
+layout_mode = 2
+
+[node name="Button" type="Button" parent="Player/UI/Control/InventoryUI/Panel/Content/Items/ItemContainer/Items/Georges Claw"]
+layout_mode = 0
+offset_right = 320.0
+offset_bottom = 320.0
+icon = ExtResource("4_vf7ot")
+icon_alignment = 1
+expand_icon = true
+
+[node name="Description" type="RichTextLabel" parent="Player/UI/Control/InventoryUI/Panel/Content/Items/ItemContainer/Items/Georges Claw"]
+visible = false
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+text = "Georges claw is a powerful and all mighty claw"
+
 [node name="Description" type="Panel" parent="Player/UI/Control/InventoryUI/Panel/Content/Items"]
 layout_mode = 1
 anchors_preset = 15
@@ -1726,6 +1603,8 @@ offset_top = 446.0
 offset_bottom = -490.0
 grow_horizontal = 2
 grow_vertical = 2
+text = "BLA BLA
+"
 
 [node name="Description" type="RichTextLabel" parent="Player/UI/Control/InventoryUI/Panel/Content/Items/Description"]
 layout_mode = 1
@@ -1735,6 +1614,7 @@ anchor_bottom = 1.0
 offset_top = 500.0
 grow_horizontal = 2
 grow_vertical = 2
+text = "BLASLLBALBLALBLbBLASLLBALBLALBLbBLASLLBALBLALBLbBLASLLBALBLALBLbBLASLLBALBLALBLbBLASLLBALBLALBLbBLASLLBALBLALBLbBLASLLBALBLALBLbBLASLLBALBLALBLbBLASLLBALBLALBLb"
 
 [node name="TextureRect" type="TextureRect" parent="Player/UI/Control/InventoryUI/Panel/Content/Items/Description"]
 layout_mode = 1
@@ -1744,7 +1624,7 @@ anchor_bottom = 1.0
 offset_bottom = -549.0
 grow_horizontal = 2
 grow_vertical = 2
-expand_mode = 1
+texture = ExtResource("1_23mms")
 stretch_mode = 5
 
 [node name="Stats" type="Control" parent="Player/UI/Control/InventoryUI/Panel/Content"]
@@ -1858,7 +1738,7 @@ speed_scale = 2.0
 libraries = {
 "": SubResource("AnimationLibrary_w1atl")
 }
-blend_times = [&"Jump", &"Idle", 0.1, &"Jump", &"Run", 0.1, &"Jump", &"RESET", 0.1, &"Idle", &"Jump", 0.5, &"Idle", &"Run", 0.5, &"Idle", &"RESET", 0.5, &"Run", &"Jump", 0.5, &"Run", &"Idle", 0.5, &"Run", &"RESET", 0.5]
+blend_times = [&"Jump", &"RESET", 0.1, &"Jump", &"Idle", 0.1, &"Jump", &"Run", 0.1, &"Idle", &"RESET", 0.5, &"Idle", &"Jump", 0.5, &"Idle", &"Run", 0.5, &"Run", &"RESET", 0.5, &"Run", &"Jump", 0.5, &"Run", &"Idle", 0.5]
 
 [node name="Sword" type="Node2D" parent="Player"]
 
@@ -1898,14 +1778,6 @@ one_shot = true
 
 [node name="SwordSwing" type="Timer" parent="Player"]
 wait_time = 0.1
-one_shot = true
-
-[node name="ItemPickup" type="Timer" parent="Player"]
-wait_time = 3.0
-one_shot = true
-
-[node name="InteractTimer" type="Timer" parent="Player"]
-wait_time = 0.2
 one_shot = true
 
 [node name="Dummy" type="CharacterBody2D" parent="." groups=["enemy"]]
@@ -1982,67 +1854,8 @@ position = Vector2(960, 540)
 scale = Vector2(2.15, 2.15)
 texture = ExtResource("15_87a7d")
 
-[node name="Banana" parent="." instance=ExtResource("21_7cqco")]
-position = Vector2(11743, 3276)
-item_resource = ExtResource("22_y157n")
-
-[node name="Cube" parent="." instance=ExtResource("21_7cqco")]
-position = Vector2(6251, 4021)
-item_resource = ExtResource("23_5adhr")
-
-[node name="Umbrella" parent="." instance=ExtResource("21_7cqco")]
-position = Vector2(-657, 2249)
-item_resource = ExtResource("25_g5gma")
-
-[node name="Seth" type="StaticBody2D" parent="." groups=["seth"]]
-position = Vector2(5612, 3591)
-
-[node name="TempCharacter" type="Node2D" parent="Seth"]
-
-[node name="ArmR" type="Sprite2D" parent="Seth/TempCharacter"]
-position = Vector2(18, -12.9999)
-scale = Vector2(0.6, 0.6)
-texture = ExtResource("4_dwa4x")
-offset = Vector2(-30, 21.6665)
-
-[node name="LegR" type="Sprite2D" parent="Seth/TempCharacter"]
-position = Vector2(6, 11)
-scale = Vector2(0.6, 0.6)
-texture = ExtResource("5_xvhef")
-offset = Vector2(-13.3335, -18.3333)
-
-[node name="LegL" type="Sprite2D" parent="Seth/TempCharacter"]
-position = Vector2(-10.9999, 11)
-rotation = 0.0147705
-scale = Vector2(0.6, 0.6)
-texture = ExtResource("5_xvhef")
-offset = Vector2(-13.3335, -18.3333)
-
-[node name="Body" type="Sprite2D" parent="Seth/TempCharacter"]
-position = Vector2(0, 7.99995)
-scale = Vector2(0.6, 0.6)
-texture = ExtResource("6_42gg4")
-offset = Vector2(0, -13.3333)
-
-[node name="ArmL" type="Sprite2D" parent="Seth/TempCharacter"]
-position = Vector2(-19.8512, -11.9353)
-scale = Vector2(-0.6, 0.6)
-texture = ExtResource("4_dwa4x")
-offset = Vector2(-29.752, 21.5588)
-
-[node name="Head" type="Sprite2D" parent="Seth/TempCharacter"]
-position = Vector2(-0.999902, -18)
-scale = Vector2(0.6, 0.6)
-texture = ExtResource("3_xrrrt")
-offset = Vector2(1.6665, 30)
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Seth"]
-position = Vector2(1, -4)
-shape = SubResource("RectangleShape2D_u2ovc")
-
 [connection signal="body_entered" from="Player/Area" to="Player" method="_on_area_body_entered"]
 [connection signal="body_exited" from="Player/Area" to="Player" method="_on_area_body_exited"]
-[connection signal="body_entered" from="Player/InteractArea" to="Player" method="_on_interact_area_body_entered"]
 [connection signal="pressed" from="Player/UI/Control/EvolveUI/EvolvePanel/PlusButtons/ToxPlus" to="Player/UI/Control/EvolveUI" method="_on_tox_plus_pressed"]
 [connection signal="pressed" from="Player/UI/Control/EvolveUI/EvolvePanel/PlusButtons/EndPlus" to="Player/UI/Control/EvolveUI" method="_on_end_plus_pressed"]
 [connection signal="pressed" from="Player/UI/Control/EvolveUI/EvolvePanel/PlusButtons/FlmPlus" to="Player/UI/Control/EvolveUI" method="_on_flm_plus_pressed"]
@@ -2054,5 +1867,3 @@ shape = SubResource("RectangleShape2D_u2ovc")
 [connection signal="timeout" from="Player/Cayote" to="Player" method="_on_cayote_timeout"]
 [connection signal="timeout" from="Player/SwordCooldown" to="Player" method="_on_sword_cooldown_timeout"]
 [connection signal="timeout" from="Player/SwordSwing" to="Player" method="_on_sword_swing_timeout"]
-[connection signal="timeout" from="Player/ItemPickup" to="Player" method="_on_item_pickup_timeout"]
-[connection signal="timeout" from="Player/InteractTimer" to="Player" method="_on_interact_timer_timeout"]

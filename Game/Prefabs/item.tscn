@@ -1,0 +1,20 @@
+[gd_scene load_steps=4 format=3 uid="uid://c2pucgxgaf7t5"]
+
+[ext_resource type="Script" path="res://Script/Item.gd" id="1_smbuk"]
+[ext_resource type="Texture2D" uid="uid://cmmro5b5ygvks" path="res://Art/Placeholder/Cube.png" id="2_dnial"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_wtfq4"]
+
+[node name="Item" type="StaticBody2D" groups=["item"]]
+scale = Vector2(4, 4)
+collision_layer = 2
+collision_mask = 2
+script = ExtResource("1_smbuk")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+modulate = Color(1, 1, 0.0588235, 1)
+scale = Vector2(0.62, 0.62)
+texture = ExtResource("2_dnial")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_wtfq4")

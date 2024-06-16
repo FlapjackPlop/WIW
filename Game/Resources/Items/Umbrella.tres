@@ -1,0 +1,10 @@
+[gd_resource type="Resource" script_class="Item" load_steps=3 format=3 uid="uid://b3o767u2vq482"]
+
+[ext_resource type="Script" path="res://Script/ItemResource.gd" id="1_68be0"]
+[ext_resource type="Texture2D" uid="uid://dxeympqpd5kqq" path="res://Art/Placeholder/SwordSwing.png" id="1_f0upj"]
+
+[resource]
+script = ExtResource("1_68be0")
+item_name = "Umbrella"
+description = "This is an umbrella"
+image = ExtResource("1_f0upj")
