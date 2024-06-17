@@ -8,6 +8,7 @@ extends Control
 
 @onready var item_container = preload("res://Prefabs/item_container.tscn")
 
+@warning_ignore("unused_parameter")
 func _process(delta):
 	if Input.is_action_pressed("inv"):
 		visible = true

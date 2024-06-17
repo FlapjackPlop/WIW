@@ -56,6 +56,8 @@ var showing_item = false
 
 func _ready():
 	$Cayote.wait_time = cayote_seconds # Sets cayote timer
+	
+	Global.player = self
 
 func combat():
 	# Attacks on mouse press

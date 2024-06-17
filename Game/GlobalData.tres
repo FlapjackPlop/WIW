@@ -1,0 +1,22 @@
+[gd_resource type="Resource" script_class="GlobalData" load_steps=3 format=3]
+
+[ext_resource type="Script" path="res://Script/ResourceScripts/GlobalData.gd" id="1_jpnu8"]
+[ext_resource type="Resource" path="res://Resources/Items/Umbrella.tres" id="1_kov12"]
+
+[resource]
+script = ExtResource("1_jpnu8")
+gravity = 2000
+player_position = Vector2(2405.01, 2319.25)
+player_damage = 20
+player_health = 50
+player_max_health = 50
+level = 0
+isotopes = 0
+max_heals = 4
+heals = 0
+items = [ExtResource("1_kov12")]
+item_containers = []
+in_dialogue = false
+toxicity = 0
+endurance = 0
+flame = 0

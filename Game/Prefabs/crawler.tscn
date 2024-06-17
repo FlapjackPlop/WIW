@@ -418,7 +418,7 @@ speed_scale = 2.0
 libraries = {
 "": SubResource("AnimationLibrary_74672")
 }
-blend_times = [&"Walk", &"Hurt", 0.5, &"Walk", &"Shoot", 0.2, &"Shoot", &"Hurt", 0.5, &"Shoot", &"Walk", 0.5]
+blend_times = [&"Shoot", &"Hurt", 0.5, &"Shoot", &"Walk", 0.5, &"Walk", &"Shoot", 0.2, &"Walk", &"Hurt", 0.5]
 
 [node name="CollisionShape" type="CollisionShape2D" parent="."]
 position = Vector2(0, -18)

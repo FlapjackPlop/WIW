@@ -1858,7 +1858,7 @@ speed_scale = 2.0
 libraries = {
 "": SubResource("AnimationLibrary_w1atl")
 }
-blend_times = [&"Jump", &"Idle", 0.1, &"Jump", &"Run", 0.1, &"Jump", &"RESET", 0.1, &"Idle", &"Jump", 0.5, &"Idle", &"Run", 0.5, &"Idle", &"RESET", 0.5, &"Run", &"Jump", 0.5, &"Run", &"Idle", 0.5, &"Run", &"RESET", 0.5]
+blend_times = [&"Run", &"RESET", 0.5, &"Run", &"Idle", 0.5, &"Run", &"Jump", 0.5, &"Idle", &"RESET", 0.5, &"Idle", &"Run", 0.5, &"Idle", &"Jump", 0.5, &"Jump", &"RESET", 0.1, &"Jump", &"Run", 0.1, &"Jump", &"Idle", 0.1]
 
 [node name="Sword" type="Node2D" parent="Player"]
 
